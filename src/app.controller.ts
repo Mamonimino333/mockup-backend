@@ -31,12 +31,12 @@ const modelData = {
       height: 500,
       coord: "0,0,384,506, 0,500,378,787, 300,500,537,777, 300,0,548,484"
     },
-    {
-      name: "model4",
-      width: 300,
-      height: 500,
-      coord: "0,0,418,467, 0,500,418,790, 300,500,618,790, 300,0,618,467"
-    }
+    // {
+    //   name: "model4",
+    //   width: 300,
+    //   height: 500,
+    //   coord: "0,0,418,467, 0,500,418,790, 300,500,618,790, 300,0,618,467"
+    // }
   ],
   default: "model1"
 }
@@ -79,7 +79,7 @@ export class AppController {
     const img = await Jimp.read(`./data/models/${model}/base_images/base.png`);
     img.resize(1000, 1000);
     img.color([
-      {apply: ColorActionName.MIX, params: [{r: req.color.r, g: req.color.g, b: req.color.b, a: 1}, 60]},
+      {apply: ColorActionName.MIX, params: [{r: req.color.r, g: req.color.g, b: req.color.b, a: 1}, 80]},
     ]);
     await img.writeAsync("./data/temp.png");
     const logo = await Jimp.read("./data/logo.png");
