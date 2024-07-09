@@ -11,19 +11,19 @@ const modelData = {
       name: "model1",
       width: 300,
       height: 500,
-      coord: "0,0,248,157, 0,500,248,957, 300,500,748,957, 300,0,748,157"
+      coord: "0,0,248,157, 0,800,248,957, 500,800,748,957, 500,0,748,157"
     },
     {
       name: "model2",
       width: 300,
       height: 500,
-      coord: "0,0,300,219, 0,500,300,866, 300,500,705,866, 300,0,705,219"
+      coord: "0,0,300,219, 0,800,300,866, 500,800,705,866, 500,0,705,219"
     },
     {
       name: "model5",
       width: 300,
       height: 500,
-      coord: "0,0,319,224, 0,500,319,801, 300,500,680,801, 300,0,680,224"
+      coord: "0,0,319,224, 0,800,319,801, 500,800,680,801, 500,0,680,224"
     },
     // {
     //   name: "model3",
@@ -83,7 +83,7 @@ export class AppController {
     ]);
     await img.writeAsync("./data/temp.png");
     const logo = await Jimp.read("./data/logo.png");
-    logo.resize(data.width, data.height);
+    logo.resize(500, 800);
     await logo.writeAsync("./data/logo.png");
     await generateMockup({
       artwork: "./data/logo.png",
