@@ -62,6 +62,8 @@ export class AppController {
 
   @Get("/models")
   getModels() {
+    const jsonString = await fetch('models.json');
+    const modelData = await jsonString.json();
     return modelData;
   }
 
