@@ -4,6 +4,8 @@ import generateMockup from './mockup/create_mockup';
 import Color from 'color';
 import Jimp from 'jimp';
 import {ColorActionName} from "@jimp/plugin-color";
+import * as fs from 'fs';
+import * as path from 'path';
 
 const modelData = {
   models: [
@@ -61,10 +63,12 @@ export class AppController {
   }
 
   @Get("/models")
-  getModels() {
-    const jsonString = await fetch('models.json');
-    const modelData = await jsonString.json();
-    return modelData;
+  async getModels() {
+    const filePath = path.join(__dirname, '..', 'public', 'models.json');
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    // const jsonString = await fetch('./models.json');
+    // const modelData = await jsonString.json();
+    return data;
   }
 
   @Post("/mockup")
